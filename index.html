@@ -26,32 +26,174 @@
 // --- Adventure Template ---
 // Add scenes here. Each key is a scene ID.
 const adventure = {
-  start: {
-    title: "Start Scene",
-    img: "https://placehold.co/600x400?text=Start",
-    text: "This is your starting point. Add your own scenes!",
-    choices: [
-      { label: "Example Choice 1", next: "scene1" },
-      { label: "Example Choice 2", next: "scene2" }
-    ]
-  },
+  // There are 17 images total.
+  // Image format: images/XX The Hollywood Series.jpg
+  // Scene numbering starts at 1 (start), then 2..17 matching image numbers.
 
-  scene1: {
+  1: {
     title: "Scene 1",
-    img: "https://placehold.co/600x400?text=Scene+1",
-    text: "This is scene 1. Customize it.",
+    img: "images/01 The Hollywood Series.jpg",
+    text: "Welcome to Scene 1. Replace this text with your own description.",
     choices: [
-      { label: "Go Back", next: "start" }
+      { label: "Start Game", next: 2 }
     ]
   },
 
-  scene2: {
+  2: {
     title: "Scene 2",
-    img: "https://placehold.co/600x400?text=Scene+2",
-    text: "This is scene 2.",
+    img: "images/02 The Hollywood Series.jpg",
+    text: "This is Scene 2.",
     choices: [
-      { label: "Back to Start", next: "start" }
+      { label: "Yes", next: 3 },
+      { label: "No", next: 17 }
     ]
+  },
+
+  3: {
+    title: "Scene 3",
+    img: "images/03 The Hollywood Series.jpg",
+    text: "This is Scene 3.",
+    choices: [
+      { label: "Short Flight", next: 4 },
+      { label: "Long Road Trip", next: 18 }
+    ]
+  },
+
+  4: {
+    title: "Scene 4",
+    img: "images/04 The Hollywood Series.jpg",
+    text: "Scene 4.",
+    choices: [ 
+      { label: "Go up and talk to her", next: 5 }, 
+      { label: "Leave her alone", next: 6 }
+    ]
+  },
+
+  5: {
+    title: "Scene 5",
+    img: "images/05 The Hollywood Series.jpg",
+    text: "Scene 5.",
+    choices: [ 
+      { label: "Follow Her", next: 6 }, 
+      { label: "Go Back to your Seat", next: 8 } 
+    ]
+  },
+
+  6: {
+    title: "Scene 6",
+    img: "images/06 The Hollywood Series.jpg",
+    text: "Scene 6.",
+    choices: [ 
+      { label: "Follow Her", next: 7 }, 
+      { label: "Go Back to your Seat", next: 8 }
+    ]
+  },
+
+  7: {
+    title: "Scene 7",
+    img: "images/07 The Hollywood Series.jpg",
+    text: "Scene 7.",
+    choices: [ 
+      { label: "You've been Arrested!", next: 17 }
+    ]
+  },
+
+  8: {
+    title: "Scene 8",
+    img: "images/08 The Hollywood Series.jpg",
+    text: "Scene 8.",
+    choices: [ 
+      { label: "Wink at Her", next: 9 }, 
+      { label: "Sit down in your seat", next: 10 } 
+    ]
+  },
+
+  9: {
+    title: "Scene 9",
+    img: "images/09 The Hollywood Series.jpg",
+    text: "Scene 9.",
+    choices: [ 
+      { label: "Rub against her ass", next: 11 }, 
+      { label: "Back up and apologize", next: 12 } 
+    ]
+  },
+
+  10: {
+    title: "Scene 10",
+    img: "images/10 The Hollywood Series.jpg",
+    text: "Scene 10.",
+    choices: [ 
+      { label: "Rub against her ass", next: 11 }, 
+      { label: "Back up and apologize", next: 12 } 
+    ]
+  },
+
+  11: {
+    title: "Scene 11",
+    img: "images/11 The Hollywood Series.jpg",
+    text: "Scene 11.",
+    choices: [ 
+      { label: "Put it in her ass", next: 14 },
+      { label: "Slide it in her pussy", next: 13 } ,
+      { label: "Get a sloppy BJ", next: 15 }
+    ]
+  },
+
+  12: {
+    title: "Scene 12",
+    img: "images/12 The Hollywood Series.jpg",
+    text: "Scene 12.",
+    choices: [
+      { label: "Put it in her ass", next: 14 }, 
+      { label: "Slide it in her pussy", next: 13 } , 
+      { label: "Get a sloppy BJ", next: 15 }
+    ]
+  },
+
+  13: {
+    title: "Scene 13",
+    img: "images/13 The Hollywood Series.jpg",
+    text: "Scene 13.",
+    choices: [
+      { label: "Return to your Seat", next: 16 }
+    ]
+  },
+
+  14: {
+    title: "Scene 14",
+    img: "images/14 The Hollywood Series.jpg",
+    text: "Scene 14.",
+    choices: [
+      { label: "Return to your Seat", next: 16 }
+    ]
+  },
+
+  15: {
+    title: "Scene 15",
+    img: "images/15 The Hollywood Series.jpg",
+    text: "Scene 15.",
+    choices: [
+      { label: "Return to your Seat", next: 16 }
+    ]
+  },
+
+  16: {
+    title: "Scene 16",
+    img: "images/16 The Hollywood Series.jpg",
+    text: "Scene 16.",
+    choices: [ 
+      { label: "Get to know her", next: 17 }, 
+      { label: "Kiss her", next: 17 } 
+    ]
+  },
+
+  17: {
+    title: "Scene 17",
+    img: "images/17 The Hollywood Series.jpg",
+    text: "Final Scene.",
+    choices: [ 
+      { label: "Try again", next: 1 }
+      ]
   }
 };
 
