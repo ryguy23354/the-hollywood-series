@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adventure Template</title>
+<style>
+  body { font-family: sans-serif; text-align: center; background: #222; color: #eee; margin: 0; padding: 20px; overflow-x: hidden; }
+  img { max-width: 90vw; max-height: 60vh; border-radius: 8px; }
+  #container { position: relative; }
+  .fade { opacity: 0; transition: opacity 0.5s ease; }
+  .fade.visible { opacity: 1; }
+  .choices { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  button { padding: 10px 20px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1 id="title"></h1>
+<div id="container" class="fade visible">
+  <img id="sceneImage" src="" alt="scene" />
+  <p id="description"></p>
+  <div class="choices" id="choices"></div>
+</div>
+
+<script>
+// --- Adventure Template ---
+// Add scenes here. Each key is a scene ID.
+const adventure = {
+  start: {
+    title: "Start Scene",
+    img: "https://placehold.co/600x400?text=Start",
+    text: "This is your starting point. Add your own scenes!",
+    choices: [
+      { label: "Example Choice 1", next: "scene1" },
+      { label: "Example Choice 2", next: "scene2" }
+    ]
+  },
+
+  scene1: {
+    title: "Scene 1",
+    img: "https://placehold.co/600x400?text=Scene+1",
+    text: "This is scene 1. Customize it.",
+    choices: [
+      { label: "Go Back", next: "start" }
+    ]
+  },
+
+  scene2: {
+    title: "Scene 2",
+    img: "https://placehold.co/600x400?text=Scene+2",
+    text: "This is scene 2.",
+    choices: [
+      { label: "Back to Start", next: "start" }
+    ]
+  }
+};
+
+// --- Rendering logic with fade transition ---
+function fadeOut(element) {
+  return new Promise(resolve => {
+    element.classList.remove("visible");
+    setTimeout(resolve, 500);
+  });
+}
+
+function fadeIn(element) {
+  element.classList.add("visible");
+}
+
+async function render(sceneKey) {
+  const scene = adventure[sceneKey];
+  if (!scene) return;
+
+  const container = document.getElementById("container");
+
+  await fadeOut(container);
+
+  document.getElementById("title").textContent = scene.title;
+  document.getElementById("sceneImage").src = scene.img;
+  document.getElementById("description").textContent = scene.text;
+
+  const choices = document.getElementById("choices");
+  choices.innerHTML = "";
+
+  scene.choices.forEach(choice => {
+    const btn = document.createElement("button");
+    btn.textContent = choice.label;
+    btn.onclick = () => render(choice.next);
+    choices.appendChild(btn);
+  });
+
+  fadeIn(container);
+}
+
+render("start");
+</script>
+</body>
+</html>
